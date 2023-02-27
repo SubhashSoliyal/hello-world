@@ -1,0 +1,48 @@
+class Employee:
+    no_of_leaves = 8
+
+    def __init__(self, aname, asalary, arole) -> None:
+        self.name = aname
+        self.salary = asalary
+        self.role = arole
+    
+    def printdetails(self):
+        return f"Name is {self.name}. Salary is {self.salary} and role is {self.role} "
+
+    @classmethod
+    def change_leaves(cls,new_leaves):
+        cls.no_of_leaves = new_leaves
+
+    # class methode as a alternative constructor
+    @classmethod
+    def from_dash(cls, string):
+        # params = string.split("-")
+        # print(params)
+        # return cls(params[0],params[1],params[2])
+        return cls(*string.split("-"))
+
+    # static methods ii class
+    @staticmethod
+    def printgood(string):
+        print("This is good " + string)
+        return "Thanga", 89
+    
+    #Abstrection and Encapsulation in class or oops
+
+
+
+
+harry = Employee("Harry", 5000, "Instructor")
+rohan = Employee("Rohan", 4000, "student")
+karan = Employee.from_dash("Rohan-4800-student")
+
+print(karan.salary)
+
+print(karan.printgood("Subhash"))
+karan.printgood("soliyal")
+Employee.printgood("Harry")
+
+
+rohan.change_leaves(50)
+
+
